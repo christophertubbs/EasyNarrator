@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Appearance</title>
+        <script>
+            if (!Object.hasOwn(window, 'appearance')) {
+                console.log("Creating a new appearance namespace from index.html");
+                window.appearance = {};
+            }
+        </script>
+        <link rel="stylesheet" href="/scripts/jquery/jquery-ui.css">
+        <script src="/scripts/jquery/jquery.js"></script>
+        <script src="/scripts/jquery/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="/style/appearance.css">
+        <script type="module" src="/scripts/utility.js"></script>
+        <script type="module" src="/scripts/value.js"></script>
+        <script type="module" src="/scripts/elements.js"></script>
+        <script type="module" src="/scripts/client.js"></script>
+        <script type="module" src="/scripts/responses.js"></script>
+        <script type="module" src="/scripts/requests.js"></script>
+        <script type="module" src="/scripts/appearance.js"></script>
+    </head>
+    <body>
+        <div id="on-screen">
+            <div id="global-header" class="appearance-header appearance-global-header">
+                <h1>Appearance UI</h1>
+            </div>
+            <div id="global-toolbar" class="appearance-toolbar appearance-global-toolbar">
+                <button id="load-button" class="appearance-when-connected">Load</button>
+                <button id="kill-button" class="appearance-when-connected">Shut Down</button>
+                <input class="appearance-when-disconnected" type="text" id="connection-path" value="ws">
+                <button class="appearance-when-disconnected" id="connect-button">Connect</button>
+            </div>
+            <div id="no-content-block">
+                <h1>
+                    No data has been loaded
+                </h1>
+            </div>
+            <div id="content">
+                <ul id="content-tabs">
+                </ul>
+            </div>
+        </div>
+        <div id="loading-modal" class="appearance-dialog appearance-modal appearance-loading-dialog">
+            <p>
+                Loading <span id="currently-loading"></span>...
+            </p>
+            <div id="loading-progress-bar"></div>
+            <button id="close-loading-modal-button">OK</button>
+        </div>
+        <div id="load-dialog" class="appearance-dialog appearance-modal appearance-input-dialog" title="Load File">
+            <div id="load-dialog-content" class="appearance-dialog-content">
+                <input id="open-path" name="open-path">
+                <button id="open-dataset-button">Load</button>
+            </div>
+        </div>
+        <div id="error-dialog" class="appearance-dialog appearance-modal appearance-error-dialog" title="Error">
+            <div id="error-dialog-content" class="appearance-dialog-content appearance-error-content">
+                <b>Message ID:</b> <span id="failed-message-id" class="appearance-error-details"></span>
+                <br>
+                <b>Failed on:</b> <span id="failed_message_type" class="appearance-error-details"></span>
+                <p id="error-message" class="appearance-error-message"></p>
+            </div>
+        </div>
+    </body>
+</html>
