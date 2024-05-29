@@ -154,3 +154,8 @@ cython_debug/
 
 # PyCharm
 .idea/
+
+# Generated Artifacts
+easy_narrator/static/resources/samples
+easy_narrator/static/resources/*.json
+easy_narrator/static/resources/*.csv

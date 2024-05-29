@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Easy Reader</title>
+        <script>
+            if (!Object.hasOwn(window, 'narrator')) {
+                console.log("Creating a new narrator namespace from index.html");
+                window.narrator = {};
+            }
+        </script>
+        <link rel="stylesheet" href="/static/scripts/jquery/jquery-ui.css">
+        <script src="/static/scripts/jquery/jquery.js"></script>
+        <script src="/static/scripts/jquery/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="/static/style/narrator.css">
+        <script type="module" src="/static/scripts/utility.js"></script>
+        <script type="module" src="/static/scripts/application.js"></script>
+        <script type="module" src="/static/scripts/models.js"></script>
+        <script type="module" src="/static/scripts/value.js"></script>
+        <script type="module" src="/static/scripts/elements.js"></script>
+        <script type="module" src="/static/scripts/responses.js"></script>
+        <script type="module" src="/static/scripts/requests.js"></script>
+        <script type="module" src="/static/scripts/sample_gallery.js"></script>
+    </head>
+    <body>
+        <div id="on-screen">
+            <div id="global-header" class="narrator-header narrator-global-header">
+                <h1>Easy Narrator</h1>
+            </div>
+            <fieldset id="sample-selection">
+                <legend>
+                    Samples
+                </legend>
+                <div id="audio-box">
+                    <audio id="narration" controls></audio>
+                    <select id="audio-speed-input">
+                        <option value="0.5">50%</option>
+                        <option value="0.75">75%</option>
+                        <option value="1.0" selected>100%</option>
+                        <option value="1.5">150%</option>
+                        <option value="2.0">200%</option>
+                    </select>
+                </div>
+                <div id="dataset-box">
+                    <label for="dataset-selector">Dataset:</label>
+                    <select id="dataset-selector" name="dataset-selector"></select>
+                </div>
+                <div id="model-box">
+                    <label for="model-selector">Model:</label>
+                    <select id="model-selector" name="model-selector"></select>
+                </div>
+                <div id="speaker-box">
+                    <label for="speaker-selector">Speaker:</label>
+                    <select id="speaker-selector" name="speaker-selector"></select>
+                </div>
+                <div id="language-box">
+                    <label for="language-selector">Language:</label>
+                    <select id="language-selector" name="language-selector"></select>
+                </div>
+                <button id="load-sample-button">Load Sample</button>
+            </fieldset>
+        </div>
+        <div id="loading-modal" class="narrator-dialog narrator-modal narrator-loading-dialog">
+            <div id="loading-information">
+                <span id="loading-message">Loading <span id="currently-loading">Data</span>...</span>
+                <span id="loading-amount">
+                    <span id="loading-completion-count"></span>/<span id="loading-total-count"></span>
+                </span>
+            </div>
+            <div id="loading-progress-bar"></div>
+            <button id="close-loading-modal-button">OK</button>
+        </div>
+        <div id="error-dialog" class="narrator-dialog narrator-modal narrator-error-dialog" title="Error">
+            <div id="error-dialog-content" class="narrator-dialog-content narrator-error-content">
+                <b>Failed on:</b> <span id="failed_message_type" class="narrator-error-details"></span>
+                <p id="error-message" class="narrator-error-message"></p>
+            </div>
+        </div>
+    </body>
+</html>
