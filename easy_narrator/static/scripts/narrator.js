@@ -143,7 +143,7 @@ async function initializeClient() {
 
 function toggleContentLoadStatus() {
     const contentToShow = $(narrator.app.connected ? ".narrator-when-connected" : ".narrator-when-disconnected");
-    const contentToHide = $(!narrator.app.connected ? ".narrator-when-disconnected" : ".narrator-when-connected");
+    const contentToHide = $(narrator.app.connected ? ".narrator-when-disconnected" : ".narrator-when-connected");
 
     contentToShow.show();
     contentToHide.hide();
@@ -222,7 +222,6 @@ async function initialize() {
     $("#loading-progress-bar").progressbar({value: false});
     $("button").button();
     $("#content").tabs();
-    toggleContentLoadStatus();
 
     Object.defineProperty(
         narrator,
@@ -249,6 +248,7 @@ async function initialize() {
     $("#audio-box select").on("change", setSpeed);
 
     await initializeClient();
+    toggleContentLoadStatus();
 }
 
 async function loadDataClicked() {

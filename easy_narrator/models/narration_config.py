@@ -67,7 +67,7 @@ class NarrationConfig(pydantic.BaseModel):
         return {
             field_name: getattr(self, field_name)
             for field_name, field in self.__fields__.items()
-            if field_name != 'model_name'
+            if field_name != 'name'
                and getattr(self, field_name)
         }
 

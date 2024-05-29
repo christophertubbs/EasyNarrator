@@ -269,7 +269,7 @@ export class Application {
             index = this.#tracks.length - 1;
         }
 
-        this.#audioElement.src = this.#tracks[index];
+        this.#audioElement.src = this.#tracks.at(index);
     }
 
     /**
